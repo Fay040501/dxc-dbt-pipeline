@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: dxc
+    schema: public
+    description: "Tables brutes alimentées par les ETL R/Python"
+    tables:
+      - name: tb_tts
+        description: "Surveys TTS bruts (toutes campagnes confondues)"
+      - name: tb_reclamations
+        description: "Réclamations filtrées avec colonnes de traitement BO"
+      - name: tb_ftth_prepaid
+        description: "Parc FTTH prépayé (nd, date_expiration, date_id)"
+      - name: tb_ftth_postpaid
+        description: "Parc FTTH postpayé (nd, etat, date_id)"
+      - name: tb_ftth_prepaid_recharges
+        description: "Historique des recharges prépayées"
+      - name: tb_ftth_postpaid_paiements
+        description: "Historique des paiements postpayés"

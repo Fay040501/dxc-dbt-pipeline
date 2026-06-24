@@ -1,0 +1,110 @@
+version: 2
+
+models:
+
+  - name: mart_reclamations
+    description: "Table des réclamations pour l'appli web. Mode incrémental - les traitements agents ne sont jamais écrasés."
+    columns:
+      - name: id_hash
+        description: "Clé primaire MD5"
+        data_tests:
+          - not_null
+          - unique
+      - name: statut_traitement
+        description: "NON ASSIGNE → ASSIGNE → TRAITE"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["NON ASSIGNE", "ASSIGNE", "TRAITE"]
+      - name: nd_clean
+        description: "Numéro de désignation fibre"
+        data_tests:
+          - not_null
+
+  - name: mart_retour_actif_prepaid
+    description: "Agrégation retour actif prepaid par jour/campagne pour Power BI"
+    columns:
+      - name: jour
+        description: "Date de l'appel"
+        data_tests:
+          - not_null
+      - name: mois_appel
+        description: "Mois de l'appel"
+        data_tests:
+          - not_null
+      - name: campagne
+        description: "Nom de la campagne TTS"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["PREPAID", "PREPAID CRITIQUE", "PREPAID REVEIL", "WINBACK"]
+      - name: nb_contactes
+        description: "Nombre de clients contactés"
+        data_tests:
+          - not_null
+      - name: taux_retour
+        description: "Taux de retour actif en %"
+        data_tests:
+          - not_null
+
+  - name: mart_retour_actif_postpaid
+    description: "Agrégation retour actif postpaid par jour/campagne pour Power BI"
+    columns:
+      - name: jour
+        data_tests:
+          - not_null
+      - name: mois_appel
+        data_tests:
+          - not_null
+      - name: campagne
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["FACTURE OUVERTE", "SUSPENSION"]
+      - name: nb_contactes
+        data_tests:
+          - not_null
+      - name: taux_retour
+        data_tests:
+          - not_null
+
+  - name: mart_retour_actif_recla_prepaid
+    description: "Agrégation retour actif réclamations prepaid pour Power BI"
+    columns:
+      - name: jour
+        data_tests:
+          - not_null
+      - name: mois_recla
+        data_tests:
+          - not_null
+      - name: campagne
+        data_tests:
+          - not_null
+      - name: nb_reclamations
+        data_tests:
+          - not_null
+      - name: taux_traitement
+        data_tests:
+          - not_null
+
+  - name: mart_retour_actif_recla_postpaid
+    description: "Agrégation retour actif réclamations postpaid pour Power BI"
+    columns:
+      - name: jour
+        data_tests:
+          - not_null
+      - name: mois_recla
+        data_tests:
+          - not_null
+      - name: campagne
+        data_tests:
+          - not_null
+      - name: nb_reclamations
+        data_tests:
+          - not_null
+      - name: taux_traitement
+        data_tests:
+          - not_null
