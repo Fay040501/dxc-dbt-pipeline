@@ -222,4 +222,4 @@ Déclencheur : quotidien à 06h00
 Data Analyst — Direction de l'Expérience Client, Orange Côte d'Ivoire
 Master 2 Ingénierie Statistique et Data Science — INSSEDS
 
-[GitHub](https://github.com/Fay040501) · [LinkedIn](#)
+[GitHub](https://github.com/Fay040501) · [LinkedIn](https://www.linkedin.com/in/alassane-yahaya-fofana-aa1263222/)
